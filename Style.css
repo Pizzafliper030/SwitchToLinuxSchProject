@@ -154,6 +154,7 @@ li {
   margin-top: 10px; /* space between box & arrow */
 }
 
+
 .corner-badge {
   position: fixed;
   bottom: 10px;
@@ -168,16 +169,32 @@ li {
   vertical-align: middle;
 }
 
-#deploy-time {
-  font-size: 0.85em;
-  color: #444;
-  background-color: #f8f8f8;
-  padding: 6px 12px;
-  border-radius: 6px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+.status-stack {
   position: fixed;
   bottom: 10px;
-  left: 10px;
+  right: 10px;
+  text-align: center;
   z-index: 9999;
+}
+
+#deploy-time {
+  font-size: 0.7em;
+  color: #888;
+  background-color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px 4px 0 0;
   font-style: italic;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.corner-badge {
+  display: inline-block;
+  background-color: #24292e;
+  padding: 6px 10px;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.corner-badge img {
+  vertical-align: middle;
 }
