@@ -170,10 +170,11 @@ li {
 
 #deploy-time {
   font-size: 0.85em;
-  color: #888;
-  margin-top: 1rem;
+  color: #666;
+  margin-top: 2rem;
   text-align: right;
-  border: 2px dashed red;
   position: relative;
   z-index: 1000;
+  font-style: italic;
 }
+
