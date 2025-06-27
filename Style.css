@@ -168,3 +168,9 @@ li {
   vertical-align: middle;
 }
 
+#deploy-time {
+  font-size: 0.85em;
+  color: #888;
+  margin-top: 1rem;
+  text-align: right;
+}
