@@ -198,3 +198,10 @@ li {
 .corner-badge img {
   vertical-align: middle;
 }
+
+#deploy-time {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  /* and anything else in that old block */
+}
