@@ -21,3 +21,14 @@ setInterval(() => {
     }
   }
 }, 500);
+
+fetch('https://api.github.com/repos/Drag0n3r3ath030/SwitchToLinuxSchProject/actions/workflows/pages-build-deployment.yml/runs?per_page=1&status=success')
+.then(response => response.json())
+.then(data => {
+  const timestamp = new Date(data.workflow_runs[0].updated_at);
+  const localTime = timestamp.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+  document.getElementById('deploy-time').textContent = `Last deployed: ${localTime}`;
+})
+.catch(() => {
+  document.getElementById('deploy-time').textContent = 'Last deployed: unavailable';
+});
