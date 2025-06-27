@@ -169,12 +169,14 @@ li {
 }
 
 #deploy-time {
-  font-size: 0.85em;
-  color: #666;
-  margin-top: 2rem;
-  text-align: right;
-  position: relative;
+  font-size: 0.9em;
+  color: #888;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.15);
   z-index: 1000;
-  font-style: italic;
-  padding: 4px 10px;
 }
