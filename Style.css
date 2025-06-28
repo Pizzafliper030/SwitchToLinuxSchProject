@@ -202,9 +202,6 @@ li {
 }
 
 #star-button {
-  position: fixed;
-  top: 10px;
-  left: 10px;
   z-index: 10000;
   border: none;
 }
