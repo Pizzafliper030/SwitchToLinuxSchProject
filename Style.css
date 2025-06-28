@@ -200,9 +200,3 @@ li {
 .corner-badge img {
   vertical-align: middle;
 }
-
-#star-button {
-  z-index: 10000;
-  border: none;
-}
-
