@@ -168,7 +168,6 @@ li {
 .corner-badge img {
   vertical-align: middle;
 }
-
 .status-stack {
   position: fixed;
   bottom: 10px;
@@ -185,6 +184,9 @@ li {
   border-radius: 4px 4px 0 0;
   font-style: italic;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }
 
 .corner-badge {
@@ -197,11 +199,4 @@ li {
 
 .corner-badge img {
   vertical-align: middle;
-}
-
-#deploy-time {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  /* and anything else in that old block */
 }
