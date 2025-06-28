@@ -200,3 +200,21 @@ li {
 .corner-badge img {
   vertical-align: middle;
 }
+
+.star-wrapper {
+  animation: fadeInStar 1.5s ease-out forwards;
+  opacity: 0;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+@keyframes fadeInStar {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
