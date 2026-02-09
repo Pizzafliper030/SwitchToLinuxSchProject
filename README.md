@@ -1,6 +1,3 @@
-Hey anyone who's looking at this!
+Link to website:https://pizzafliper030.github.io/SwitchToLinuxSchProject/
 
-This is a school project that im taking to another level.
-
-Bye!
-28/05/2025
+CSS generated using Copilot (i think gpt 4o mini)
