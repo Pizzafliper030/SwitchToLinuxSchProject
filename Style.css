@@ -1,34 +1,8 @@
-/* Nord palette, sourced from the actual midnight-discord nord flavor
-   (nordtheme.com's official hex values, not approximated) */
+/* background color and font */
 :root {
   --smooth-ease: cubic-bezier(0.22, 1, 0.36, 1);
-
-  --nord0: #2e3440;
-  --nord1: #3b4252;
-  --nord2: #434c5e;
-  --nord3: #4c566a;
-  --nord4: #d8dee9;
-  --nord5: #e5e9f0;
-  --nord6: #eceff4;
-  --nord7: #8fbcbb;
-  --nord8: #88c0d0;
-  --nord9: #81a1c1;
-  --nord10: #5e81ac;
-  --nord11: #bf616a;
-  --nord12: #d08770;
-  --nord13: #ebcb8b;
-  --nord14: #a3be8c;
-  --nord15: #b48ead;
-
-  --bg-dark: var(--nord0);
-  --panel: var(--nord1);
-  --panel-2: var(--nord2);
-  --border-subtle: hsla(220, 20%, 70%, 0.12);
-  --text-heading: var(--nord5);
-  --text-body: var(--nord4);
-  --text-bright: var(--nord6);
-  --text-muted: var(--nord3);
-  --accent: var(--nord8);
+  --bg-dark: #0d0d0d;
+  --panel-dark: #24292e;
 }
 
 html {
@@ -59,7 +33,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, rgba(46, 52, 64, 0.75) 0%, rgba(46, 52, 64, 0.55) 35%, rgba(46, 52, 64, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 35%, rgba(0, 0, 0, 0.65) 100%);
   pointer-events: none;
 }
 
@@ -76,8 +50,8 @@ header, main, footer {
 }
 
 p, h1, h2, h3, ul, ol {
-  color: var(--text-body);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.85);
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.95);
 }
 
 p, h1, h2, h3 {
@@ -85,19 +59,19 @@ p, h1, h2, h3 {
 }
 
 a {
-  color: var(--nord8);
+  color: #6cb4f5;
   text-decoration: underline;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
   transition: color 0.2s var(--smooth-ease);
 }
 
 a:hover,
 a:focus-visible {
-  color: var(--nord7);
+  color: #a3d1ff;
 }
 
 li {
-  color: var(--text-body);
+  color: white;
   padding: 6px 8px;
   border-radius: 6px;
   list-style-type: decimal;
@@ -105,12 +79,12 @@ li {
 }
 
 li:hover {
-  background-color: hsla(220, 20%, 70%, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 hr {
   border: none;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
   max-width: 900px;
   margin: 28px auto;
 }
@@ -123,16 +97,14 @@ h1 {
   font-weight: 600;
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-size: clamp(24px, 3vw + 12px, 38px);
-  color: var(--text-heading);
 }
 
 /* subheadings */
 h2 {
   font-weight: 600;
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 8px;
-  color: var(--text-heading);
 }
 
 /* paragraphs */
@@ -163,31 +135,25 @@ ol {
 }
 
 .distro-card {
-  background-color: var(--panel);
-  border: 1px solid var(--border-subtle);
-  border-left: 3px solid var(--nord9);
-  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-left: 3px solid #6cb4f5;
+  border-radius: 4px;
   padding: 14px 18px;
   min-width: 220px;
   flex: 1 1 220px;
   list-style-type: none;
-  transition: background-color 0.2s var(--smooth-ease);
-}
-
-.distro-card:hover {
-  background-color: var(--panel-2);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
 }
 
 .distro-card strong {
   display: block;
   margin-bottom: 2px;
-  color: var(--text-heading);
 }
 
 .distro-card .tagline {
   font-size: 12px;
   font-style: italic;
-  color: var(--text-muted);
+  color: #9fb3a8;
 }
 
 .distro-card.reveal {
@@ -214,8 +180,8 @@ ol {
   max-width: 100%;
   width: 400px;
   height: auto;
-  border-radius: 6px;
-  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s var(--smooth-ease);
 }
 
@@ -228,11 +194,11 @@ ol {
   position: absolute;
   bottom: 8px;
   right: 8px;
-  background-color: rgba(46, 52, 64, 0.85);
+  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border: 1px solid var(--border-subtle);
-  color: var(--text-body);
+  border: none;
+  color: #ddd;
   font-size: 11px;
   padding: 2px 8px;
   border-radius: 6px;
@@ -243,25 +209,25 @@ ol {
 
 .image-credit:hover,
 .image-credit:focus-visible {
-  background-color: var(--panel-2);
-  color: var(--text-bright);
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
 }
 
 .scroll-first, .fun-fact, .extra-box {
   padding: 12px 18px;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 14px;
   font-weight: 600;
   border-left: 4px solid;
-  background-color: var(--panel);
-  color: var(--text-body);
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
   width: fit-content;
   max-width: 100%;
 }
 
 .scroll-first {
-  border-left-color: var(--nord8);
+  border-left-color: #6cb4f5;
   text-align: center;
 }
 
@@ -272,12 +238,12 @@ ol {
 }
 
 .fun-fact {
-  border-left-color: var(--nord13);
+  border-left-color: #f0c040;
   align-self: center;
 }
 
 .extra-box {
-  border-left-color: var(--nord14);
+  border-left-color: #6cb4f5;
   position: relative;
 }
 
@@ -285,7 +251,6 @@ ol {
   font-size: 56px;
   text-align: center;
   margin-top: 10px;
-  color: var(--nord8);
   animation: bob 1.6s ease-in-out infinite;
 }
 
@@ -335,10 +300,10 @@ ol {
 
 .corner-badge {
   display: block;
-  background-color: var(--panel);
-  border: 1px solid var(--border-subtle);
+  background-color: var(--panel-dark);
   padding: 6px 10px;
   border-radius: 0 0 6px 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -350,13 +315,12 @@ ol {
 
 #deploy-time {
   font-size: 11px;
-  color: var(--text-muted);
-  background-color: var(--panel);
-  border: 1px solid var(--border-subtle);
-  border-bottom: none;
+  color: #c9d1d9;
+  background-color: var(--panel-dark);
   padding: 3px 10px;
   border-radius: 6px 6px 0 6px;
   font-style: italic;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
@@ -376,6 +340,7 @@ ol {
   font-family: -apple-system, "Segoe UI", Arial, sans-serif;
   border-radius: 6px;
   overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   background: none;
   border: none;
   padding: 0;
