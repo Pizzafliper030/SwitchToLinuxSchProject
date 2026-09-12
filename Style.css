@@ -187,7 +187,8 @@ ol {
 .distro-card .tagline {
   font-size: 12px;
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--nord4);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .distro-card.reveal {
@@ -303,8 +304,10 @@ ol {
 .distro-fan-wrap {
   display: flex;
   justify-content: center;
+  align-items: center;
   align-self: center;
   flex: 0 0 auto;
+  width: 540px;
   max-width: 100%;
 }
 
@@ -350,7 +353,7 @@ ol {
 
 #deploy-time {
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--nord4);
   background-color: var(--panel);
   border: 1px solid var(--border-subtle);
   border-bottom: none;
