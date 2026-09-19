@@ -1,0 +1,289 @@
+/* Linux Tour — matches the real Windows XP htmlTour's actual typography
+   (Franklin Gothic / Tahoma) and per-chapter color system, laid out with
+   flexbox instead of the original's deprecated <frameset>. */
+
+:root {
+  --chapter-color: #808080;
+  --ghost: #BBC6C2;
+  --bottombar-bg: #6687FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  font-size: 13px;
+  color: #333;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Top-level layout: sidebar + content, bottom bar pinned under everything */
+.tour-body {
+  display: flex;
+  flex: 1;
+}
+
+#tour-sidebar {
+  width: 190px;
+  flex-shrink: 0;
+  background: #f2f2f2;
+  border-right: 1px solid #ccc;
+  padding: 16px 0;
+}
+
+.sidebar-home {
+  display: block;
+  padding: 4px 16px 14px 16px;
+  font-weight: bold;
+  color: #555;
+  font-size: 12px;
+}
+
+.sidebar-home:hover {
+  text-decoration: underline;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-link {
+  padding: 8px 16px;
+  font-family: "Franklin Gothic Medium", "Franklin Gothic", Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: var(--chapter-color);
+  border-left: 4px solid transparent;
+}
+
+.sidebar-link:hover {
+  background: #e8e8e8;
+}
+
+.sidebar-link.current {
+  background: #fff;
+  border-left-color: var(--chapter-color);
+}
+
+/* Content area */
+.tour-content {
+  flex: 1;
+  padding: 28px 36px;
+  max-width: 640px;
+}
+
+.body_header {
+  font-family: "Franklin Gothic Medium", "Franklin Gothic", Tahoma, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--chapter-color);
+  margin: 0 0 14px 0;
+}
+
+.body_text {
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.body_text p {
+  margin: 0 0 14px 0;
+}
+
+.tour-img {
+  display: block;
+  max-width: 100%;
+  margin: 18px 0;
+  border: 1px solid #ccc;
+}
+
+.tour-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 16px;
+  margin: 18px 0;
+  background: #f5f5f5;
+  border: 2px dashed #bbb;
+  color: #888;
+  font-size: 12px;
+  font-family: Tahoma, sans-serif;
+}
+
+.next-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 8px 18px;
+  font-family: "Franklin Gothic Medium", "Franklin Gothic", Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: #fff;
+  background: var(--chapter-color);
+  border-radius: 3px;
+}
+
+.next-link:hover {
+  filter: brightness(1.1);
+}
+
+/* Sub-navigation: list style (Start Here chapter) */
+.subnav-list {
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.subnav-list-link {
+  display: block;
+  padding: 6px 0;
+  font-weight: bold;
+  color: var(--chapter-color);
+}
+
+.subnav-list-link:hover {
+  text-decoration: underline;
+}
+
+.subnav-list-link.current {
+  color: #333;
+  text-decoration: underline;
+}
+
+/* Sub-navigation: thumbnail-row style (other 4 chapters) */
+.subnav-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.subnav-thumb {
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: var(--ghost);
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.subnav-thumb.current {
+  background: var(--chapter-color);
+}
+
+.subnav-thumb:hover {
+  filter: brightness(1.1);
+}
+
+/* Bottom nav bar */
+#tour-bottombar {
+  background: var(--bottombar-bg);
+  padding: 10px 16px;
+}
+
+.bottombar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  justify-content: center;
+}
+
+.bottombar-link {
+  font-family: "Franklin Gothic Medium", "Franklin Gothic", Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+  opacity: 0.75;
+}
+
+.bottombar-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.bottombar-link.current {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Hub page */
+.intro-wrap {
+  display: flex;
+  flex: 1;
+  padding: 40px;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-left {
+  flex: 0 0 220px;
+}
+
+.intro-logo {
+  max-width: 180px;
+  margin-bottom: 16px;
+}
+
+.intro-body {
+  font-family: Tahoma, sans-serif;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.intro-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.intro-nav-title {
+  display: inline-block;
+  font-family: "Franklin Gothic Medium", "Franklin Gothic", Tahoma, sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.intro-nav-title:hover {
+  text-decoration: underline;
+}
+
+.intro-nav-desc {
+  font-family: Tahoma, sans-serif;
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .tour-body {
+    flex-direction: column;
+  }
+  #tour-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+  .intro-wrap {
+    flex-direction: column;
+  }
+}
