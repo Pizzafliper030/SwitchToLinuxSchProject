@@ -217,32 +217,34 @@ a {
   text-decoration: underline;
 }
 
-/* Hub page — anchored top-left, matching the real tour exactly */
-body:has(.intro-wrap) {
-  display: block;
-}
-
+/* Hub page — bigger text, more spacing, matching the real tour's scale */
 .intro-wrap {
   display: flex;
-  gap: 30px;
-  padding: 24px 0 0 24px;
+  gap: 40px;
+  padding: 30px;
 }
 
 .intro-left {
-  flex: 0 0 370px;
+  width: 380px;
 }
 
 .intro-logo {
-  max-width: 220px;
-  margin-bottom: 18px;
-  display: block;
+  font-family: Tahoma, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 18px 0;
+}
+
+.intro-logo span {
+  color: #ffcc00;
 }
 
 .intro-body {
-  font-family: Tahoma, Verdana, sans-serif;
-  font-size: 22px;
+  font-family: Tahoma, sans-serif;
+  font-size: 24px;
   color: #7f7f7f;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .intro-copyright {
@@ -254,28 +256,27 @@ body:has(.intro-wrap) {
 }
 
 .intro-right {
-  flex: 0 0 430px;
+  width: 480px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 30px;
 }
 
 .intro-nav-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .intro-nav-bar {
-  width: 46px;
-  height: 15px;
+  width: 50px;
+  height: 16px;
   border-radius: 3px;
-  flex-shrink: 0;
 }
 
 .intro-nav-title {
-  font-family: Tahoma, Verdana, sans-serif;
-  font-size: 15px;
+  font-family: Tahoma, sans-serif;
+  font-size: 19px;
   font-weight: bold;
 }
 
@@ -284,10 +285,10 @@ body:has(.intro-wrap) {
 }
 
 .intro-nav-desc {
-  font-family: Tahoma, Verdana, sans-serif;
-  font-size: 12px;
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
   color: #5a6b8c;
-  margin: 4px 0 0 0;
+  margin: 6px 0 0 0;
   line-height: 1.5;
 }
 
