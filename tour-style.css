@@ -216,6 +216,7 @@ a {
 /* Hub page — bigger text, more spacing, matching the real tour's scale */
 .intro-page {
   padding: 30px;
+  max-width: 900px;
 }
 
 .intro-wrap {
@@ -228,7 +229,7 @@ a {
 }
 
 .intro-logo {
-  width: 270px;
+  width: 220px;
   height: auto;
   display: block;
   margin: 0 0 18px 0;
