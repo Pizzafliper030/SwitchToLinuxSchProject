@@ -1,7 +1,3 @@
-/* Linux Tour — matches the real Windows XP htmlTour's actual typography
-   (Franklin Gothic / Tahoma) and per-chapter color system, laid out with
-   flexbox instead of the original's deprecated <frameset>. */
-
 :root {
   --chapter-color: #808080;
   --ghost: #BBC6C2;
