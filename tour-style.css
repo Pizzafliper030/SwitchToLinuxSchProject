@@ -218,10 +218,13 @@ a {
 }
 
 /* Hub page — bigger text, more spacing, matching the real tour's scale */
+.intro-page {
+  padding: 30px;
+}
+
 .intro-wrap {
   display: flex;
   gap: 40px;
-  padding: 30px;
 }
 
 .intro-left {
@@ -229,7 +232,7 @@ a {
 }
 
 .intro-logo {
-  width: 220px;
+  width: 270px;
   height: auto;
   display: block;
   margin: 0 0 18px 0;
@@ -248,6 +251,7 @@ a {
   color: #999;
   line-height: 1.5;
   margin-top: 40px;
+  width: 100%;
 }
 
 .intro-right {
