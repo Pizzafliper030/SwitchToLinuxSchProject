@@ -2,6 +2,5 @@ Website: https://raw.githack.com/Pizzafliper030/SwitchToLinuxSchProject/multipag
 (BETA)
 
 Pictures coming soon!!!
-(mostly copy&paste off of winxp tour but some are screenshots of a kde vm and diff logos and stuff instead of windows xp ofc)
 
-Claude Sonnet 5 (medium) used to help write :P
+Claude Sonnet 5 (medium) used to help write (only a bit i swear) :P
