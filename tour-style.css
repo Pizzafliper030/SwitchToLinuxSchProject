@@ -1,6 +1,5 @@
 :root {
   --chapter-color: #808080;
-  --ghost: #BBC6C2;
   --bottombar-bg: #6687FF;
 }
 
@@ -24,193 +23,185 @@ a {
   text-decoration: none;
 }
 
-/* Top-level layout: sidebar + content, bottom bar pinned under everything */
+/* Top header: logo + all chapters */
+#tour-topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 40px 20px 20px;
+  background: linear-gradient(135deg, #8ea8ff 0%, #dfe6ff 35%, #ffffff 70%);
+}
+
+.topnav-logo {
+  width: 150px;
+  height: auto;
+}
+
+.topnav-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.topnav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.topnav-link.current {
+  font-weight: bold;
+}
+
+.topnav-link:hover {
+  text-decoration: underline;
+}
+
+.topnav-bar {
+  width: 48px;
+  height: 18px;
+  border-radius: 3px;
+}
+
+/* Body: sidebar + content */
 .tour-body {
   display: flex;
   flex: 1;
 }
 
 #tour-sidebar {
-  width: 190px;
+  width: 210px;
   flex-shrink: 0;
-  background: #f2f2f2;
-  border-right: 1px solid #ccc;
-  padding: 16px 0;
+  padding: 90px 10px 0 10px;
 }
 
 .sidebar-home {
   display: block;
-  padding: 4px 16px 14px 16px;
-  font-weight: bold;
-  color: #555;
-  font-size: 12px;
-}
-
-.sidebar-home:hover {
-  text-decoration: underline;
+  text-align: right;
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 14px;
 }
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
 .sidebar-link {
-  padding: 8px 16px;
-  font-family: "Franklin Gothic Medium", "Franklin Gothic", Tahoma, sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-  color: var(--chapter-color);
-  border-left: 4px solid transparent;
-}
-
-.sidebar-link:hover {
-  background: #e8e8e8;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #7a7a7a;
 }
 
 .sidebar-link.current {
-  background: #fff;
-  border-left-color: var(--chapter-color);
+  font-weight: bold;
+  color: #666;
 }
 
-/* Content area */
+.sidebar-link:hover {
+  text-decoration: underline;
+}
+
+.sidebar-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #999;
+}
+
+/* Content: image first, then heading + text */
 .tour-content {
   flex: 1;
-  padding: 28px 36px;
-  max-width: 640px;
-}
-
-.body_header {
-  font-family: "Franklin Gothic Medium", "Franklin Gothic", Tahoma, sans-serif;
-  font-size: 22px;
-  font-weight: bold;
-  color: var(--chapter-color);
-  margin: 0 0 14px 0;
-}
-
-.body_text {
-  font-family: Tahoma, Verdana, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #444;
-}
-
-.body_text p {
-  margin: 0 0 14px 0;
+  padding: 0 30px 30px 10px;
+  max-width: 560px;
 }
 
 .tour-img {
   display: block;
+  width: 500px;
   max-width: 100%;
-  margin: 18px 0;
-  border: 1px solid #ccc;
+  margin: 0 0 40px 0;
 }
 
 .tour-img-placeholder {
+  width: 500px;
+  max-width: 100%;
+  height: 375px;
   padding: 14px;
-  margin: 18px 0;
+  margin: 0 0 40px 0;
   background: #f5f5f5;
   border: 1px dashed #bbb;
   color: #999;
   font-size: 11px;
-  font-family: Tahoma, sans-serif;
+}
+
+.body_header {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--chapter-color);
+  margin: 0 0 8px 0;
+}
+
+.body_text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #777;
+}
+
+.body_text p {
+  margin: 0 0 10px 0;
 }
 
 .next-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 20px;
-  padding: 8px 18px;
-  font-family: "Franklin Gothic Medium", "Franklin Gothic", Tahoma, sans-serif;
+  display: block;
+  color: #2a6fe8;
+  font-size: 18px;
   font-weight: bold;
-  font-size: 13px;
-  color: #fff;
-  background: var(--chapter-color);
-  border-radius: 3px;
+  margin-top: 6px;
 }
 
 .next-link:hover {
-  filter: brightness(1.1);
+  color: #1a4fb0;
 }
 
-/* Sub-navigation: list style (Start Here chapter) */
-.subnav-list {
-  list-style: none;
-  margin: 0 0 20px 0;
-  padding: 0;
-}
-
-.subnav-list-link {
-  display: block;
-  padding: 6px 0;
-  font-weight: bold;
-  color: var(--chapter-color);
-}
-
-.subnav-list-link:hover {
-  text-decoration: underline;
-}
-
-.subnav-list-link.current {
-  color: #333;
-  text-decoration: underline;
-}
-
-/* Sub-navigation: thumbnail-row style (other 4 chapters) */
-.subnav-thumbs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.subnav-thumb {
-  padding: 8px 14px;
-  border-radius: 14px;
-  background: var(--ghost);
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.subnav-thumb.current {
-  background: var(--chapter-color);
-}
-
-.subnav-thumb:hover {
-  filter: brightness(1.1);
-}
-
-/* Bottom nav bar */
+/* Bottom bar */
 #tour-bottombar {
   background: var(--bottombar-bg);
-  padding: 10px 16px;
+  padding: 12px 16px;
 }
 
 .bottombar-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px 18px;
   justify-content: center;
+  align-items: center;
+  gap: 14px;
+  font-size: 11px;
+  font-weight: bold;
 }
 
 .bottombar-link {
-  font-family: "Franklin Gothic Medium", "Franklin Gothic", Tahoma, sans-serif;
-  font-weight: bold;
-  font-size: 12px;
   color: #fff;
-  opacity: 0.75;
 }
 
 .bottombar-link:hover {
-  opacity: 1;
   text-decoration: underline;
 }
 
 .bottombar-link.current {
-  opacity: 1;
-  text-decoration: underline;
+  color: #9db0ff;
+  font-style: italic;
+}
+
+.bottombar-sep {
+  color: #c8d3ff;
 }
 
 /* Hub page — bigger text, more spacing, matching the real tour's scale */
@@ -287,14 +278,21 @@ a {
   line-height: 1.5;
 }
 
+
 @media (max-width: 700px) {
   .tour-body {
     flex-direction: column;
   }
   #tour-sidebar {
     width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
+    padding-top: 10px;
+  }
+  .sidebar-link {
+    justify-content: flex-start;
+  }
+  #tour-topnav {
+    flex-direction: column;
+    gap: 10px;
   }
   .intro-wrap {
     flex-direction: column;
