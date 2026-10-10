@@ -1,20 +1,15 @@
 // Linux Tour — shared chrome renderer.
-// Inspired by the real Windows XP htmlTour's structure (chapters, colored
-// per chapter, a sidebar + bottom nav bar + sub-topic navigation), rebuilt
-// with modern DOM APIs instead of the original's frameset/document.all,
-// which don't work in current browsers at all.
-//
-// Each content page just sets data-chapter and data-page on <body> and
-// includes empty #tour-sidebar / #tour-bottombar containers — this file
-// fills them in identically on every page, so the chrome markup only
-// exists once instead of being copy-pasted into 20+ files.
+// Matches the real tour's actual structure: a top header bar listing ALL
+// chapters, a left sidebar listing the CURRENT chapter's sub-topics, and
+// a bottom bar with short labels, the current chapter muted since you're
+// already there.
 
 const TOUR_CHAPTERS = [
   {
     id: "start",
     color: "#808080",
     title: "Start Here",
-    style: "list",
+    shortTitle: "Start Here",
     pages: [
       { id: "desktop", title: "The Linux Desktop" },
       { id: "icons", title: "Icons" },
@@ -30,7 +25,7 @@ const TOUR_CHAPTERS = [
     id: "safe",
     color: "#FF4600",
     title: "Safe and Easy Personal Computing",
-    style: "thumb",
+    shortTitle: "Personal Computing",
     pages: [
       { id: "easier", title: "Easier to Learn and Use" },
       { id: "faster", title: "Faster, Smarter, Safer" },
@@ -41,7 +36,7 @@ const TOUR_CHAPTERS = [
     id: "unlock",
     color: "#54AA2B",
     title: "Unlock the World of Digital Media",
-    style: "thumb",
+    shortTitle: "Digital Media",
     pages: [
       { id: "built", title: "Built-in Creative & Media Tools" },
       { id: "optimized", title: "Optimized for Games" }
@@ -51,7 +46,7 @@ const TOUR_CHAPTERS = [
     id: "connected",
     color: "#495AD1",
     title: "The Connected Home and Office",
-    style: "thumb",
+    shortTitle: "Home and Office",
     pages: [
       { id: "data", title: "Data Protection, Inside and Out" },
       { id: "multiple", title: "Multiple Users \u2014 A Cinch to Switch" },
@@ -63,7 +58,7 @@ const TOUR_CHAPTERS = [
     id: "best",
     color: "#D29B00",
     title: "Best for Business",
-    style: "thumb",
+    shortTitle: "Business",
     pages: [
       { id: "road", title: "On the Road and Around the World" },
       { id: "robust", title: "Robust, Reliable, Compatible" },
@@ -80,9 +75,6 @@ function pageUrl(chapterId, pageId) {
   return `${chapterId}_${pageId}.html`;
 }
 
-// Works out, for the current chapter/page, what "Next" should point to —
-// the next sub-page in this chapter, or the first page of the next
-// chapter, or back to the hub if we're at the very end of the tour.
 function getNextTarget(chapterId, pageId) {
   const chapterIndex = TOUR_CHAPTERS.findIndex((c) => c.id === chapterId);
   const chapter = TOUR_CHAPTERS[chapterIndex];
@@ -98,15 +90,40 @@ function getNextTarget(chapterId, pageId) {
   return "index.html";
 }
 
-function renderSidebar(currentChapterId) {
-  const el = document.getElementById("tour-sidebar");
+// Top header bar: lists all 5 chapters, horizontally
+function renderTopNav(currentChapterId) {
+  const el = document.getElementById("tour-topnav");
   if (!el) return;
 
   const items = TOUR_CHAPTERS.map((chapter) => {
     const isCurrent = chapter.id === currentChapterId;
-    const firstPage = chapter.pages[0].id;
+    const classes = isCurrent ? "topnav-link current" : "topnav-link";
+    return `
+      <a href="${pageUrl(chapter.id, chapter.pages[0].id)}" class="${classes}" style="color:${chapter.color}">
+        ${chapter.title}
+        <span class="topnav-bar" style="background:${chapter.color}"></span>
+      </a>`;
+  }).join("");
+
+  el.innerHTML = `
+    <img src="pics/linuxlogo.png" alt="Linux" class="topnav-logo">
+    <nav class="topnav-nav">${items}</nav>
+  `;
+}
+
+// Left sidebar: lists the CURRENT chapter's own sub-topics
+function renderSidebar(chapter, currentPageId) {
+  const el = document.getElementById("tour-sidebar");
+  if (!el) return;
+
+  const items = chapter.pages.map((p) => {
+    const isCurrent = p.id === currentPageId;
     const classes = isCurrent ? "sidebar-link current" : "sidebar-link";
-    return `<a href="${pageUrl(chapter.id, firstPage)}" class="${classes}" style="--chapter-color:${chapter.color}">${chapter.title}</a>`;
+    return `
+      <a href="${pageUrl(chapter.id, p.id)}" class="${classes}">
+        <span class="sidebar-dot" style="background:${chapter.color}"></span>
+        ${p.title}
+      </a>`;
   }).join("");
 
   el.innerHTML = `
@@ -115,42 +132,20 @@ function renderSidebar(currentChapterId) {
   `;
 }
 
+// Bottom bar: short labels, current chapter muted instead of highlighted
 function renderBottomBar(currentChapterId) {
   const el = document.getElementById("tour-bottombar");
   if (!el) return;
 
   const items = TOUR_CHAPTERS.map((chapter) => {
     const isCurrent = chapter.id === currentChapterId;
-    const classes = isCurrent ? "bottombar-link current" : "bottombar-link";
-    return `<a href="${pageUrl(chapter.id, chapter.pages[0].id)}" class="${classes}">${chapter.title}</a>`;
-  }).join("");
+    if (isCurrent) {
+      return `<span class="bottombar-link current">${chapter.shortTitle}</span>`;
+    }
+    return `<a href="${pageUrl(chapter.id, chapter.pages[0].id)}" class="bottombar-link">${chapter.shortTitle}</a>`;
+  }).join('<span class="bottombar-sep">|</span>');
 
   el.innerHTML = `<nav class="bottombar-nav">${items}</nav>`;
-}
-
-// The "start" chapter uses a plain bulleted sub-topic list (matching the
-// real tour's start_*.htm pages); the other four chapters use a row of
-// thumbnail-style topic selectors (matching the real best_*.htm/safe_*.htm
-// pattern) — same two layouts the original tour actually used.
-function renderSubNav(chapter, currentPageId) {
-  const el = document.getElementById("tour-subnav");
-  if (!el) return;
-
-  if (chapter.style === "list") {
-    const items = chapter.pages.map((p) => {
-      const isCurrent = p.id === currentPageId;
-      const classes = isCurrent ? "subnav-list-link current" : "subnav-list-link";
-      return `<li><a href="${pageUrl(chapter.id, p.id)}" class="${classes}">${p.title}</a></li>`;
-    }).join("");
-    el.innerHTML = `<ul class="subnav-list">${items}</ul>`;
-  } else {
-    const items = chapter.pages.map((p) => {
-      const isCurrent = p.id === currentPageId;
-      const classes = isCurrent ? "subnav-thumb current" : "subnav-thumb";
-      return `<a href="${pageUrl(chapter.id, p.id)}" class="${classes}">${p.title}</a>`;
-    }).join("");
-    el.innerHTML = `<div class="subnav-thumbs">${items}</div>`;
-  }
 }
 
 function setupNextLink(chapterId, pageId) {
@@ -167,9 +162,9 @@ function initTourPage() {
 
   document.documentElement.style.setProperty("--chapter-color", chapter.color);
 
-  renderSidebar(chapterId);
+  renderTopNav(chapterId);
+  renderSidebar(chapter, pageId);
   renderBottomBar(chapterId);
-  renderSubNav(chapter, pageId);
   setupNextLink(chapterId, pageId);
 }
 
