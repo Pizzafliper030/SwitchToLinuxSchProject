@@ -7,6 +7,7 @@
 const TOUR_CHAPTERS = [
   {
     id: "start",
+    gif: "nav_start_here.gif",
     color: "#808080",
     title: "Start Here",
     shortTitle: "Start Here",
@@ -23,6 +24,7 @@ const TOUR_CHAPTERS = [
   },
   {
     id: "safe",
+    gif: "nav_safe_easy.gif",
     color: "#FF4600",
     title: "Safe and Easy Personal Computing",
     shortTitle: "Personal Computing",
@@ -34,6 +36,7 @@ const TOUR_CHAPTERS = [
   },
   {
     id: "unlock",
+    gif: "nav_unlock.gif",
     color: "#54AA2B",
     title: "Unlock the World of Digital Media",
     shortTitle: "Digital Media",
@@ -44,6 +47,7 @@ const TOUR_CHAPTERS = [
   },
   {
     id: "connected",
+    gif: "nav_connected.gif",
     color: "#495AD1",
     title: "The Connected Home and Office",
     shortTitle: "Home and Office",
@@ -56,6 +60,7 @@ const TOUR_CHAPTERS = [
   },
   {
     id: "best",
+    gif: "nav_best.gif",
     color: "#D29B00",
     title: "Best for Business",
     shortTitle: "Business",
@@ -101,7 +106,7 @@ function renderTopNav(currentChapterId) {
     return `
       <a href="${pageUrl(chapter.id, chapter.pages[0].id)}" class="${classes}" style="color:${chapter.color}">
         ${chapter.title}
-        <span class="topnav-bar" style="background:${chapter.color}"></span>
+        <img src="pics/${chapter.gif}" alt="" class="topnav-bar">
       </a>`;
   }).join("");
 
