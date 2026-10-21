@@ -53,6 +53,7 @@ a {
 
 .topnav-link.current {
   font-weight: bold;
+  margin-right: 12px;
 }
 
 .topnav-link:hover {
