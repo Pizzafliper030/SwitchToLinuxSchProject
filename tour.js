@@ -103,10 +103,12 @@ function renderTopNav(currentChapterId) {
   const items = TOUR_CHAPTERS.map((chapter) => {
     const isCurrent = chapter.id === currentChapterId;
     const classes = isCurrent ? "topnav-link current" : "topnav-link";
+    // the chapter you're on gets the pressed-in "_down" version of its button
+    const gifFile = isCurrent ? chapter.gif.replace(".gif", "_down.gif") : chapter.gif;
     return `
       <a href="${pageUrl(chapter.id, chapter.pages[0].id)}" class="${classes}" style="color:${chapter.color}">
         ${chapter.title}
-        <img src="pics/${chapter.gif}" alt="" class="topnav-bar">
+        <img src="pics/${gifFile}" alt="" class="topnav-bar">
       </a>`;
   }).join("");
 
