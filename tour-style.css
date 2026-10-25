@@ -29,7 +29,9 @@ a {
   justify-content: space-between;
   align-items: flex-start;
   padding: 10px 40px 20px 20px;
-  background: linear-gradient(135deg, #8ea8ff 0%, #dfe6ff 35%, #ffffff 70%);
+  background:
+    radial-gradient(ellipse 560px 170px at 0% 0%, #4f72ff 0%, #86a0ff 50%, rgba(134, 160, 255, 0) 100%),
+    linear-gradient(to bottom, #8aa4ff 0%, #d4defF 30%, #ffffff 65%);
 }
 
 .topnav-logo {
