@@ -164,14 +164,16 @@ a {
 
 .next-link {
   display: block;
-  color: #2a6fe8;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
-.next-link:hover {
-  color: #1a4fb0;
+.next-link img {
+  display: block;
+  border: 0;
+}
+
+.next-link:hover img {
+  opacity: 0.8;
 }
 
 /* Bottom bar */
