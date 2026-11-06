@@ -113,7 +113,7 @@ function renderTopNav(currentChapterId) {
   }).join("");
 
   el.innerHTML = `
-    <img src="pics/linuxlogo.png" alt="Linux" class="topnav-logo">
+    <a href="index.html" class="topnav-logo-link"><img src="pics/linuxlogo.png" alt="Linux Tour Home" class="topnav-logo"></a>
     <nav class="topnav-nav">${items}</nav>
   `;
 }
@@ -134,7 +134,6 @@ function renderSidebar(chapter, currentPageId) {
   }).join("");
 
   el.innerHTML = `
-    <a href="index.html" class="sidebar-home">&larr; Tour Home</a>
     <nav class="sidebar-nav">${items}</nav>
   `;
 }
