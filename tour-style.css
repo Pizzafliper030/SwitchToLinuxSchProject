@@ -34,6 +34,10 @@ a {
     linear-gradient(to bottom, #8aa4ff 0%, #d4defF 30%, #ffffff 65%);
 }
 
+.topnav-logo-link {
+  display: block;
+}
+
 .topnav-logo {
   width: 150px;
   height: auto;
@@ -76,15 +80,7 @@ a {
 #tour-sidebar {
   width: 210px;
   flex-shrink: 0;
-  padding: 90px 10px 0 10px;
-}
-
-.sidebar-home {
-  display: block;
-  text-align: right;
-  font-size: 11px;
-  color: #999;
-  margin-bottom: 14px;
+  padding: 117px 10px 0 10px;
 }
 
 .sidebar-nav {
